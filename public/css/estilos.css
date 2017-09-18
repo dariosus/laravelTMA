@@ -1,0 +1,8 @@
+header ul {
+  list-style: none;
+  overflow: hidden;
+}
+
+header li {
+  float: left;
+}
