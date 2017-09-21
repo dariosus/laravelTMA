@@ -12,5 +12,7 @@ class Pelicula extends Model
     //Aclararle a Laravel campos modificables
 
     //Opcion 1: Decirle a Laravel cuales SI puede modificar
-    public $fillable = ["id","title","ranking"];
+    //public $fillable = ["id","title","ranking"];
+    //Opcion 2: Decirle a Laravel cuales NO puede
+    public $guarded = [];
 }

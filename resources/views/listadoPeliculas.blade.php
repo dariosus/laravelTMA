@@ -8,10 +8,10 @@
     <h1>Mis películas</h1>
     @if (!empty($peliculas))
       <ul>
-        @foreach ($peliculas as $clave => $pelicula)
+        @foreach ($peliculas as $pelicula)
           <li>
-            <a href="/peliculas/{{$clave}}">
-              {{$pelicula}}
+            <a href="/peliculas/{{$pelicula->id}}">
+              {{$pelicula->title}}
             </a>
           </li>
         @endforeach

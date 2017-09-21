@@ -4,28 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Pelicula;
+
 class PeliculasController extends Controller
 {
     public function listado() {
-      $peliculas = [
-        "Toy Story",
-        "Buscando a Nemo",
-        "Monsters Inc",
-        "Star Wars"
-      ];
+      $peliculas = Pelicula::all();
 
       return view("listadoPeliculas", compact("peliculas"));
     }
 
     public function detalle($id) {
-      $peliculas = [
-        "Toy Story",
-        "Buscando a Nemo",
-        "Monsters Inc",
-        "Star Wars"
-      ];
-
-      $pelicula = $peliculas[$id];
+      $pelicula = Pelicula::find($id);
 
       return view("detallePeliculas", compact("pelicula"));
     }
