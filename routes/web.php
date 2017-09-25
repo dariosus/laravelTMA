@@ -17,6 +17,9 @@ Route::get("/actores/buscar/{busqueda}", "ActoresController@buscar");
 
 Route::get("/peliculas", "PeliculasController@listado");
 
+Route::get("agregarPelicula", "PeliculasController@agregar");
+Route::post("agregarPelicula", "PeliculasController@guardar");
+
 Route::get("/peliculas/{id}", "PeliculasController@detalle");
 
 Route::get('/', function () {
