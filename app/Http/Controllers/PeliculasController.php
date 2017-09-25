@@ -51,7 +51,77 @@ class PeliculasController extends Controller
       $this->validate($req, $reglas, $mensajes);
 
       //3. Guardar la película
+      /* Pelicula::create([
+        "title" => $req["title"],
+        "rating" => $req["rating"],
+        "awards" => $req["awards"],
+        "genre_id" => $req["genre"],
+        "release_date" => $req["release_date"],
+        "length" => $req["length"]
+      ]); */
+      //Pelicula::create($req->only("title", "rating", "awards", "genre_id", "release_date", "length"))
+
+
+      $pelicula = new Pelicula;
+      $pelicula->title = $req["title"];
+      $pelicula->rating = $req["rating"];
+      $pelicula->awards = $req["awards"];
+      $pelicula->genre_id = $req["genre_id"];
+      $pelicula->release_date =$req["release_date"];
+      $pelicula->length = $req["length"];
+
+      $pelicula->save();
+
 
       //4. Redirigir
+      return redirect("/peliculas");
+    }
+
+    public function editar($id) {
+      $pelicula = Pelicula::find($id);
+      $generos = Genero::all();
+
+      $datos = compact("pelicula", "generos");
+
+      return view("editarPelicula", $datos);
+    }
+
+    public function actualizar(Request $req, $id) {
+      $reglas = [
+        "title" => "required|string",
+        "awards" => "required|numeric|min:0",
+        "release_date"=> "required|date",
+        "rating"=> "required|numeric|min:0",
+        "length" => "required|numeric|min:0|max:200"
+      ];
+
+      $mensajes = [
+        "required" => "El campo :attribute es requerido",
+        "min" => "El campo :attribute tiene un mínimo de :min",
+      ];
+
+      $this->validate($req, $reglas, $mensajes);
+
+      $pelicula = Pelicula::find($id);
+      $pelicula->title = $req["title"];
+      $pelicula->rating = $req["rating"];
+      $pelicula->awards = $req["awards"];
+      $pelicula->genre_id = $req["genre_id"];
+      $pelicula->release_date =$req["release_date"];
+      $pelicula->length = $req["length"];
+
+      $pelicula->save();
+
+
+      //4. Redirigir
+      return redirect("/peliculas");
+    }
+
+    public function eliminar($id) {
+      $pelicula = Pelicula::find($id);
+
+      $pelicula->delete();
+
+      return redirect("/peliculas");
     }
 }

@@ -20,6 +20,11 @@ Route::get("/peliculas", "PeliculasController@listado");
 Route::get("agregarPelicula", "PeliculasController@agregar");
 Route::post("agregarPelicula", "PeliculasController@guardar");
 
+Route::get("editarPelicula/{id}", "PeliculasController@editar");
+Route::post("editarPelicula/{id}", "PeliculasController@actualizar");
+
+Route::get("eliminarPelicula/{id}", "PeliculasController@eliminar");
+
 Route::get("/peliculas/{id}", "PeliculasController@detalle");
 
 Route::get('/', function () {
