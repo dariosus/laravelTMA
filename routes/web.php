@@ -11,6 +11,8 @@
 |
 */
 
+Route::get("/generos", "GenerosController@listado");
+
 Route::get("/actores", "ActoresController@listado");
 Route::get("actores/{id}", "ActoresController@detalle");
 Route::get("/actores/buscar/{busqueda}", "ActoresController@buscar");

@@ -17,6 +17,7 @@ class PeliculasController extends Controller
 
     public function detalle($id) {
       $pelicula = Pelicula::find($id);
+      $genero = Genero::find($pelicula->genre_id);
 
       return view("detallePeliculas", compact("pelicula"));
     }
