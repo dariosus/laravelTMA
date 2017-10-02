@@ -32,3 +32,7 @@ Route::get("/peliculas/{id}", "PeliculasController@detalle");
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

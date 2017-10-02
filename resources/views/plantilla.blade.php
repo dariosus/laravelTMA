@@ -12,8 +12,8 @@
       <nav>
         <ul>
           <li>Home</li>
-          <li>Registracion</li>
-          <li>Login</li>
+          <li><a href="register">Registracion</a></li>
+          <li><a href="login">Login</a></li>
           <li>Peliculas</li>
         </ul>
       </nav>

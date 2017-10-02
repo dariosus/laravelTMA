@@ -6,13 +6,20 @@ use Illuminate\Http\Request;
 
 use App\Pelicula;
 use App\Genero;
+use Auth;
+use Redirect;
 
 class PeliculasController extends Controller
 {
+    public function __construct() {
+      $this->middleware('auth');
+    }
+
     public function listado() {
       $peliculas = Pelicula::all();
+      $usuario = Auth::user();
 
-      return view("listadoPeliculas", compact("peliculas"));
+      return view("listadoPeliculas", compact("peliculas", "usuario"));
     }
 
     public function detalle($id) {
