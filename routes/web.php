@@ -17,7 +17,7 @@ Route::get("/actores", "ActoresController@listado");
 Route::get("actores/{id}", "ActoresController@detalle");
 Route::get("/actores/buscar/{busqueda}", "ActoresController@buscar");
 
-Route::get("/peliculas", "PeliculasController@listado");
+Route::get("/peliculas", "PeliculasController@listado")->middleware("test");
 
 Route::get("agregarPelicula", "PeliculasController@agregar");
 Route::post("agregarPelicula", "PeliculasController@guardar");
@@ -27,7 +27,7 @@ Route::post("editarPelicula/{id}", "PeliculasController@actualizar");
 
 Route::get("eliminarPelicula/{id}", "PeliculasController@eliminar");
 
-Route::get("/peliculas/{id}", "PeliculasController@detalle");
+Route::get("/peliculas/{id}", "PeliculasController@detalle")->middleware("test");
 
 Route::get('/', function () {
     return view('welcome');
@@ -35,4 +35,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['middleware' => ['sarasa']], function () {
+    Route::get('/home', 'HomeController@index')->name('home');
+});
