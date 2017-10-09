@@ -6,3 +6,11 @@ header ul {
 header li {
   float: left;
 }
+
+ul.pagination li a {
+  color: green;
+}
+
+ul.pagination li.active span {
+  background-color: green;
+}

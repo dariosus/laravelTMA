@@ -6,6 +6,7 @@
 
 @section("contenido")
     <h1>Mis películas</h1>
+    {{ $peliculas->links() }}
     @if ($usuario)
       <h2>Bienvenido {{$usuario->name}}</h2>
     @endif
@@ -19,6 +20,7 @@
           </li>
         @endforeach
       </ul>
+      {{ $peliculas->links() }}
     @else
       <div class="">
         No hay peliculas
