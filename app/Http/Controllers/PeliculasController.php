@@ -78,7 +78,14 @@ class PeliculasController extends Controller
       $pelicula->release_date =$req["release_date"];
       $pelicula->length = $req["length"];
 
+      $foto = $req->file("poster");
+      $nombreArchivo = $foto->storePublicly("public/posters");
+
+      $pelicula->poster = $nombreArchivo;
+
       $pelicula->save();
+
+
 
 
       //4. Redirigir

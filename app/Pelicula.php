@@ -24,5 +24,8 @@ class Pelicula extends Model
       return $this->belongsToMany("App\Actor","actor_movie", "movie_id", "actor_id");
     }
 
+    public function getPoster() {
+      return str_replace("public", "/storage", $this->poster);
+    }
 
 }

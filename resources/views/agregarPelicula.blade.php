@@ -14,7 +14,7 @@
     	    </div>
     	@endif
 
-      <form class="" action="/agregarPelicula" method="post">
+      <form class="" action="/agregarPelicula" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="form-group">
           <label for="">Titulo</label>
@@ -53,8 +53,12 @@
           </select>
         </div>
         <div class="form-group">
+          Poster: <input type="file" name="poster" class="form-control">
+        </div>
+        <div class="form-group">
           <input class="btn btn-primary" type="submit" name="" value="Agregar Película">
         </div>
+
     </form>
     </div>
 

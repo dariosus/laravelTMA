@@ -21,6 +21,7 @@
     </li>
 
   </ul>
+  <img src="{{$pelicula->getPoster()}}" alt="">
   <a href="/editarPelicula/{{$pelicula->id}}">
     <button type="button" name="button">Editar</button>
   </a>
