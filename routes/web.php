@@ -38,3 +38,6 @@ Auth::routes();
 Route::group(['middleware' => ['sarasa']], function () {
     Route::get('/home', 'HomeController@index')->name('home');
 });
+
+Route::get('/redirect', 'SocialAuthController@redirect');
+Route::get('/callback', 'SocialAuthController@callback');
